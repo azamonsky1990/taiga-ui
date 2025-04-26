@@ -1,0 +1,33 @@
+.custom-day-badge-container {
+    position: relative;
+    display: inline-block;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    text-align: center;
+    line-height: 2.5rem;
+    font-size: 1.2em;
+}
+
+.day-number {
+    position: relative;
+    z-index: 1;
+}
+
+.badge {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    background: #d84315;
+    color: #fff;
+    border-radius: 50%;
+    min-inline-size: 0.875rem;
+    max-block-size: 0.875rem;
+    align-items: center;
+    justify-content: center;
+
+    > span {
+        font-size: 0.6em;
+    }
+}

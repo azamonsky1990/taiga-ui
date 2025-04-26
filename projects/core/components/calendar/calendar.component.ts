@@ -1,7 +1,9 @@
 import {NgIf} from '@angular/common';
+import type {TemplateRef} from '@angular/core';
 import {
     ChangeDetectionStrategy,
     Component,
+    ContentChild,
     EventEmitter,
     Input,
     Output,
@@ -71,6 +73,9 @@ export class TuiCalendar {
 
     @Input()
     public markerHandler: TuiMarkerHandler | null = null;
+
+    @ContentChild('customDayTemplate', {static: true})
+    public customDayTemplate: TemplateRef<{$implicit: TuiDay}> | null = null;
 
     @Output()
     public readonly dayClick = new EventEmitter<TuiDay>();

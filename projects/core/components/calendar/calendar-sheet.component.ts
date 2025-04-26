@@ -1,4 +1,5 @@
 import {CommonModule} from '@angular/common';
+import type {TemplateRef} from '@angular/core';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -65,6 +66,9 @@ export class TuiCalendarSheet {
 
     @Input()
     public showAdjacent = true;
+
+    @Input()
+    public customDayTemplate: TemplateRef<{$implicit: TuiDay}> | null = null;
 
     /**
      * @deprecated use static DI options instead

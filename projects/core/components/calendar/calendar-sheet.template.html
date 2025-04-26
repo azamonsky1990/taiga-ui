@@ -25,7 +25,12 @@
                     (click)="onItemClick(item)"
                     (tuiHoveredChange)="onItemHovered($event && item)"
                 >
-                    {{ item.day }}
+                    <ng-container *ngIf="customDayTemplate; else defaultDay">
+                        <ng-container *ngTemplateOutlet="customDayTemplate; context: {$implicit: item}" />
+                    </ng-container>
+                    <ng-template #defaultDay>
+                        {{ item.day }}
+                    </ng-template>
                     <div
                         *ngIf="
                             item
