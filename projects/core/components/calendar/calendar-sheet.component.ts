@@ -1,4 +1,4 @@
-import {AsyncPipe} from '@angular/common';
+import {AsyncPipe, NgTemplateOutlet} from '@angular/common';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -6,6 +6,7 @@ import {
     input,
     model,
     output,
+    type TemplateRef,
 } from '@angular/core';
 import {toObservable} from '@angular/core/rxjs-interop';
 import {TUI_FALSE_HANDLER} from '@taiga-ui/cdk/constants';
@@ -27,6 +28,7 @@ export type TuiMarkerHandler = TuiHandler<TuiDay, [] | [string, string] | [strin
     selector: 'tui-calendar-sheet',
     imports: [
         AsyncPipe,
+        NgTemplateOutlet,
         TuiCalendarSheetPipe,
         TuiHovered,
         TuiMapperPipe,
@@ -50,6 +52,7 @@ export class TuiCalendarSheet {
     public readonly markerHandler = input<TuiMarkerHandler | null>(null);
     public readonly value = input<TuiDay | TuiDayRange | readonly TuiDay[] | null>(null);
     public readonly showAdjacent = input(true);
+    public readonly dayContent = input<TemplateRef<{$implicit: TuiDay}> | null>(null);
     public readonly hoveredItem = model<TuiDay | null>(null);
     public readonly dayClick = output<TuiDay>();
 

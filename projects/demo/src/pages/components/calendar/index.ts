@@ -34,6 +34,7 @@ export default class Example {
         'Color customization',
         'Select multiple dates',
         'Open in year view',
+        'Custom day content',
     ];
 
     protected showAdjacent = true;

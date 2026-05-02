@@ -28,7 +28,14 @@
                         (click)="dayClick.emit(item)"
                         (tuiHoveredChange)="onItemHovered($event && item)"
                     >
-                        {{ item.day }}
+                        @if (dayContent(); as tpl) {
+                            <ng-container
+                                [ngTemplateOutlet]="tpl"
+                                [ngTemplateOutletContext]="{$implicit: item}"
+                            />
+                        } @else {
+                            {{ item.day }}
+                        }
                         @if (
                             item | tuiMapper: toMarkers : itemIsToday(item) : getItemRange(item) : markerHandler();
                             as markers

@@ -25,6 +25,7 @@
     />
     <tui-calendar-sheet
         automation-id="tui-calendar__calendar"
+        [dayContent]="dayContent() ?? null"
         [disabledItemHandler]="disabledItemHandler() | tuiMapper: disabledItemHandlerMapper : min() : max()"
         [hoveredItem]="hoveredItem()"
         [markerHandler]="markerHandler()"

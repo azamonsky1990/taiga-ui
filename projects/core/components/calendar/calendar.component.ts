@@ -2,12 +2,14 @@ import {
     ChangeDetectionStrategy,
     Component,
     computed,
+    contentChild,
     effect,
     inject,
     input,
     linkedSignal,
     model,
     output,
+    type TemplateRef,
 } from '@angular/core';
 import {
     TUI_FIRST_DAY,
@@ -68,6 +70,9 @@ export class TuiCalendar {
     public readonly hoveredItem = model<TuiDay | null>(null);
     public readonly value = model<TuiDay | TuiDayRange | readonly TuiDay[] | null>(null);
     public readonly dayClick = output<TuiDay>();
+
+    public readonly dayContent =
+        contentChild<TemplateRef<{$implicit: TuiDay}>>('dayContent');
 
     protected readonly computedMinViewedMonth = computed(() => {
         const min = this.min();

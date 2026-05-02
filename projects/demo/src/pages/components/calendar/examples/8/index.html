@@ -1,0 +1,16 @@
+<tui-calendar [(value)]="value">
+    <ng-template
+        #dayContent
+        let-day
+    >
+        <span
+            class="day"
+            [class.day_highlighted]="isHighlighted(day)"
+        >
+            {{ day.day }}
+        </span>
+        @if (eventCount(day); as count) {
+            <span class="badge">{{ count }}</span>
+        }
+    </ng-template>
+</tui-calendar>

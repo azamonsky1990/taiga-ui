@@ -41,6 +41,11 @@
                             to change cell's data-type attribute and customize its color. (The default color for
                             Saturday and Sunday is var(--tui-text-negative))
                         }
+                        @case (8) {
+                            Project an
+                            <code>&lt;ng-template #dayContent let-day&gt;</code>
+                            inside the calendar to render custom content (badges, indicators, etc.) for every day cell.
+                        }
                         @default {}
                     }
                 </ng-template>
